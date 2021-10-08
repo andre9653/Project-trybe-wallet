@@ -37,6 +37,8 @@ const Main = styled.main`
 
 const H1 = styled.h1`
   display: block;
+  margin: 0;
+  padding: 70px;
   text-align: center;
 `;
 

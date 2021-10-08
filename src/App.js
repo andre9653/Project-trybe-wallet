@@ -5,7 +5,6 @@ import Login from './pages/Login';
 import Wallet from './pages/Wallet';
 
 const Main = styled.main`
-  display: flex;
 `;
 function App() {
   return (
