@@ -1,21 +1,35 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
+
+const Select = styled.select`
+  background-color: dodgerblue;
+  border-color: white;
+  border-radius: 5px;
+  margin-left: 3px;
+  padding: 5px;
+  text-align: center;
+`;
+
+const Label = styled.label`
+  padding: 5px;
+`;
 
 export default class SelectForm extends React.Component {
   render() {
     const { labelText, id, options, value, name, handleChange } = this.props;
     return (
-      <label htmlFor={ id }>
+      <Label htmlFor={ id }>
         {labelText}
-        <select
+        <Select
           id={ id }
           value={ value }
           name={ name }
           onChange={ handleChange }
         >
           {options.map((option, index) => <option key={ index }>{option}</option>)}
-        </select>
-      </label>
+        </Select>
+      </Label>
     );
   }
 }
