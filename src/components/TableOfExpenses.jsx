@@ -1,8 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import LineOfTable from './LineOfTable';
 import { deleteExpense, totalExpenditure } from '../actions';
+
 
 const descriptionsHeader = [
   'Descrição', 'Tag', 'Método de pagamento', 'Valor', 'Moeda', 'Câmbio utilizado',
@@ -40,7 +42,7 @@ class TableOfExpenses extends React.Component {
           [expense.description, expense.tag, expense.method, expense.value,
             currencyActual.name, parseFloat(currencyActual.ask).toFixed(2),
             parseFloat(currencyActual.ask) * parseFloat(expense.value) || 0,
-            'Real', buttonEdite(expense.id, editClick), buttonDelete(expense.id, handleClick),
+            'Real', /* buttonEdite(expense.id, editClick), */ buttonDelete(expense.id, handleClick),
           ] };
       });
       return (
