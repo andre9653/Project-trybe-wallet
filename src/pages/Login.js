@@ -2,7 +2,43 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import { addValue } from '../actions';
+
+const Input = styled.input`
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  display: inline-block;
+  margin: 8px 0;
+  padding: 12px 20px;
+  width: 20vw;
+`;
+const Button = styled.button`
+  background-color: #4caf50;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  cursor: pointer;
+  margin: 8px 0;
+  padding: 14px 20px;
+  width: 20vw;
+`;
+
+const Main = styled.main`
+  background-color: #f2f2f2;
+  border-radius: 5px;
+  height: 100vh;
+  justify-content: center;
+  margin: auto;
+  text-align: center;
+  width: 100vw;
+`;
+
+const H1 = styled.h1`
+  display: block;
+  text-align: center;
+`;
 
 class Login extends React.Component {
   constructor(props) {
@@ -48,8 +84,9 @@ class Login extends React.Component {
     const { email, password, validLogin, redirect } = this.state;
     if (redirect) return <Redirect to="/carteira" />;
     return (
-      <div>
-        <input
+      <Main>
+        <H1>Login Wallet</H1>
+        <Input
           name="email"
           type="email"
           placeholder="E-mail"
@@ -57,7 +94,7 @@ class Login extends React.Component {
           value={ email }
           onChange={ this.handleChange }
         />
-        <input
+        <Input
           name="password"
           type="password"
           value={ password }
@@ -65,14 +102,14 @@ class Login extends React.Component {
           data-testid="password-input"
           onChange={ this.handleChange }
         />
-        <button
+        <Button
           type="button"
           disabled={ !validLogin }
           onClick={ this.handelClick }
         >
           Entrar
-        </button>
-      </div>
+        </Button>
+      </Main>
     );
   }
 }
