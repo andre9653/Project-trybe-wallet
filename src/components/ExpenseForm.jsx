@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import InputForm from './InputForm';
 import SelectForm from './SelectForm';
 import responseApi from '../service/data';
