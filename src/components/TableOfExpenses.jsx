@@ -5,19 +5,32 @@ import styled from 'styled-components';
 import LineOfTable from './LineOfTable';
 import { deleteExpense, totalExpenditure } from '../actions';
 
-
+const Table = styled.table`
+  display: grid;
+`;
+const Button = styled.button`
+  background-color: #f11c2d;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  cursor: pointer;
+  height: 90%;
+  margin: 8px 0;
+  padding: 5px;
+  width: 50%;
+`;
 const descriptionsHeader = [
   'Descrição', 'Tag', 'Método de pagamento', 'Valor', 'Moeda', 'Câmbio utilizado',
   'Valor convertido', 'Moeda de conversão', 'Editar/Excluir'];
 const buttonDelete = (id, func) => (
-  <button
+  <Button
     data-testid="delete-btn"
     type="button"
     onClick={ func }
     name={ id }
   >
     Del
-  </button>);
+  </Button>);
 const buttonEdite = (id, func) => (
   <button
     data-testid="edit-btn"
@@ -50,7 +63,7 @@ class TableOfExpenses extends React.Component {
           <thead>
             <LineOfTable textLine={ descriptionsHeader } typeTable="th" />
           </thead>
-          <tfoot>
+          <tbody>
             {descriptionExpenses
               .map((descriptionExpense) => (<LineOfTable
                 id={ descriptionExpense.id }
@@ -58,7 +71,7 @@ class TableOfExpenses extends React.Component {
                 textLine={ descriptionExpense.info }
                 typeTable="td"
               />))}
-          </tfoot>
+          </tbody>
         </table>
       );
     }
