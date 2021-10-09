@@ -7,6 +7,23 @@ import SelectForm from './SelectForm';
 import responseApi from '../service/data';
 import { expenditure, totalExpenditure } from '../actions';
 
+const Button = styled.button`
+  background-color: #0957ff;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  cursor: pointer;
+  margin: 8px 0;
+  padding: 5px;
+  width: 15vw;
+`;
+
+const Form = styled.form`
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin-left: 10px;
+`;
+
 class ExpenseForm extends React.Component {
   constructor(props) {
     super(props);
@@ -45,6 +62,7 @@ class ExpenseForm extends React.Component {
       });
   }
 
+  // eslint-disable-next-line max-lines-per-function
   render() {
     const { valueExpense,
       descriptionExpense, currencyOption,
@@ -54,7 +72,7 @@ class ExpenseForm extends React.Component {
     const { currency } = this.props;
     if (!currency.responseApi) return <h1>Loading</h1>;
     return (
-      <form>
+      <Form>
         <InputForm
           labelText="Valor: "
           name="valueExpense"
@@ -91,8 +109,8 @@ class ExpenseForm extends React.Component {
           id="typeExpense"
           handleChange={ this.handleChange }
         />
-        <button type="button" onClick={ this.handleClick }>Adicionar despesa</button>
-      </form>
+        <Button type="button" onClick={ this.handleClick }>Adicionar despesa</Button>
+      </Form>
     );
   }
 }
