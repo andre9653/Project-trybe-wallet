@@ -7,7 +7,6 @@ import SelectForm from './SelectForm';
 import responseApi from '../service/data';
 import { expenditure, totalExpenditure } from '../actions';
 
-
 class ExpenseForm extends React.Component {
   constructor(props) {
     super(props);
